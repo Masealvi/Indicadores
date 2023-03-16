@@ -1,0 +1,106 @@
+<br>
+<article class="container">
+    <form>
+        <section>
+            <div class="row">
+                <div class="col col-lg-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Año</mat-label>
+                        <mat-select multiple [formControl]="anios">
+                            <mat-select-trigger>
+                                {{anios.value ? anios.value[0] : ''}}
+                                <span *ngIf="anios.value?.length > 1" class="example-additional-selection">
+                                    (+{{anios.value.length - 1}} {{anios.value?.length === 2 ? 'otro' : 'otros'}})
+                                </span>
+                            </mat-select-trigger>
+                            <mat-option (click)="getFiltrosAplicados(item, item, 'A')" *ngFor="let item of years"
+                                [value]="item">{{item}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col col-lg-3">
+                    <label>Perú comparado con:</label><br>
+                    <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1" checked>País</mat-radio-button>
+                        <mat-radio-button value="2">Grupo de países</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="col col-lg-3">
+                    <mat-form-field appearance="fill">
+                        <mat-label>País</mat-label>
+                        <mat-select multiple [formControl]="paises">
+                            <mat-select-trigger>
+                                {{paises.value ? paises.value[0] : ''}}
+                                <span *ngIf="paises.value?.length > 1" class="example-additional-selection">
+                                    (+{{paises.value.length - 1}} {{paises.value?.length === 2 ? 'otro' : 'otros'}})
+                                </span>
+                            </mat-select-trigger>
+                            <mat-option (click)="getFiltrosAplicados(item.code, item.name, 'P')"
+                                *ngFor="let item of countries" [value]="item.name">{{item.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col col-lg-2">
+                    <button (click)="graficar()" class="btn btn-primary">Graficar</button>
+                </div>
+            </div><br>
+            <mat-form-field class="example-chip-list" appearance="fill">
+                <mat-label>Filtros aplicados:</mat-label>
+                <mat-chip-list #chipList>
+                    <mat-chip *ngFor="let item of selectToChips" [selectable]="selectable" [removable]="removable"
+                        (removed)="removeChip(item)">
+                        {{item.valor}}
+                        <button matChipRemove *ngIf="removable">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-chip>
+                </mat-chip-list>
+            </mat-form-field>
+        </section>
+        <section>
+            <div class="card border-primary">
+                <div class="card-body">
+                    <nav>
+                        <div class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="tab-col" data-bs-toggle="tab"
+                                    data-bs-target="#graphic-tab-col" type="button" role="tab"
+                                    aria-controls="graphic-tab-col" aria-selected="true">Columna</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tab-line" data-bs-toggle="tab"
+                                    data-bs-target="#graphic-tab-line" type="button" role="tab"
+                                    aria-controls="graphic-tab-line" aria-selected="false">Línea</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tab-table" data-bs-toggle="tab"
+                                    data-bs-target="#graphic-tab-table" type="button" role="tab"
+                                    aria-controls="graphic-tab-table" aria-selected="false">Tabla</button>
+                            </li>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane  show active p-3" id="graphic-tab-col" role="tabpanel"
+                            aria-labelledby="tab-col" tabindex="0">
+                            <br>
+                            <div class="row">
+                                <div [chart]="columnChart" style="width: 98%;"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane  p-3" id="graphic-tab-line" role="tabpanel" aria-labelledby="tab-line"
+                            tabindex="0">
+                            <br>
+                            <div class="row">
+                                <div [chart]="lineChart" style="width: 98%;"></div>
+                            </div>
+                        </div>
+                        <div class="tab-pane  p-3" id="graphic-tab-table" role="tabpanel" aria-labelledby="tab-table"
+                            tabindex="0">
+                            <div class="table-responsive" [innerHTML]="tableHtml"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+</article>

@@ -1,0 +1,63 @@
+table td {
+
+  width: 33.33%;
+  font-size: 14px;
+}
+
+.container {
+  width: 50%;
+  max-width: 600%;
+  display: table;
+  margin: 0 auto;
+
+
+}
+
+.cortaTabla {
+  max-width: 30% !important;
+}
+
+table {
+  border: 1px solid black;
+}
+
+
+td,
+th {
+
+
+  border: 1px solid black;
+}
+
+th {
+  text-align: center;
+}
+
+thead {
+  background-color: #9c87871e;
+
+}
+
+.table-condensed td,
+.table-condensed th {
+  font-size: 12px;
+}
+
+.table-condensed {
+  padding: 0;
+
+}
+
+.table-indicador21 td {
+  font-size: 9px;
+}
+
+.table-indicador21 th {
+  font-size: 12px;
+}
+
+.table-indicador21 {
+  padding: 2;
+
+}
+

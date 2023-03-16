@@ -1,0 +1,39 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '../node_modules/highcharts/css/highcharts.css';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bg-primary-indicador {
+  background: #CFD4DA;
+}
+
+.bg-secondary-indicador {
+  background: #E8ECEF;
+}
+
+.example-chip-list {
+  width: 100%;
+}
+
+.rigth {
+  padding-right: 1px;
+  padding-top: 0.5px;
+  width: auto;
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.mat-radio-button~.mat-radio-button {
+  margin-left: 16px;
+}

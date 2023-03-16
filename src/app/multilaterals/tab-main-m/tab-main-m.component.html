@@ -1,0 +1,131 @@
+<article class="container">
+    <br>
+    <section *ngIf="codes == 1">
+        <div class="col col-lg-12">
+            <div class="left">
+                <h1>Encuesta mundial de la ONU sobre comercio digital y sostenible</h1>
+                <span>Fuente : <a href="#">MINCETUR</a> (Frecuencia actualización anual)</span>
+            </div>
+            <div class="rigth newspaper">
+                <span>PERÚ</span><br>
+                <img src="/assets/flags/PE.svg" style="width:50px;" />
+                <span>PUESTO</span><br>
+                <p>12</p>
+                <span>ÍNDICE LPI</span><br>
+                <P>2.98</P>
+            </div>
+        </div>
+        <div class="col col-lg-12 left">
+            <hr>
+            <span>Indicador para mostrar los avances en las mejores sobre el estado de la
+                infraestructura vial, principalmente en las zonas rurales, ya que influyen
+                los tiempos y costo de transporte interno.
+            </span>
+        </div>
+        <div class="col col-lg-12 left">
+            <br>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="summary" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Resumen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="positioning" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Posicionamiento</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="comparative" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Comparativo</a>
+                </li>
+            </ul>
+            <br>
+        </div>
+        <router-outlet></router-outlet> <!-- recrear todos los com. hijos -->
+    </section>
+    <section *ngIf="codes == 2">
+        <div class="col col-lg-12">
+            <div class="left">
+                <h1>Encuesta mundial de la ONU sobre comercio digital y sostenible</h1>
+                <span>Fuente : <a href="#">MINCETUR</a> (Frecuencia actualización anual)</span>
+            </div>
+            <div class="rigth-2 newspaper-2">
+                <span>PERÚ</span><br>
+                <img src="/assets/flags/PE.svg" style="width:50px;" />
+                <span>PUNTAJE</span><br>
+                <p>83.88%</p>
+            </div>
+        </div>
+        <div class="col col-lg-12 left">
+            <hr>
+            <span>Para ayudar a los países a comparar y reducir el tiempo y el costo del comercio transfronterizo,
+                las Comisiones Regionales de la ONU realizan conjuntamente la Encuesta Global de la ONU sobre
+                Facilitación del Comercio Digital y Sostenible. La Encuesta cubre actualmente 143 economías de todo
+                el mundo y 58 medidas relacionadas con el Acuerdo de Facilitación del Comercio (TFA) de la
+                OMC, así como iniciativas regionales y globales emergentes sobre comercio sin papel o comercio
+                electrónico. Cross-Comercio sin papel fronterizo en Asia y el Pacífico (CPTA).
+            </span>
+        </div>
+        <div class="col col-lg-12 left">
+            <br>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="summary" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Resumen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="worldComparison" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Comparativa mundial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="comparisonByMeasures" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Comparación por medidas</a>
+                </li>
+            </ul>
+            <br>
+        </div>
+        <router-outlet></router-outlet> <!-- recrear todos los com. hijos -->
+    </section>
+    <section *ngIf="codes == 3">
+        <div class="col col-lg-12">
+            <div class="left">
+                <h1>Desarrollo mundial - Data World Bank</h1>
+                <p>Fuente : <a href="#">MINCETUR</a> (Frecuencia actualización anual)</p>
+            </div>
+            <div class="rigth-3">
+                <span>PERÚ</span><br>
+                <img src="/assets/flags/PE.svg" style="width:50px;" />
+            </div>
+        </div>
+        <div class="col col-lg-12 left">
+            <hr>
+            <span>A continuación se muestran los datos obtenidos en el último año.</span>
+        </div>
+        <div class="col col-lg-12 left">
+            <br>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="summary" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Resumen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="patents" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Patentes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="marineTransport" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Transporte marítimo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="railways" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Ferrocarriles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="airTransport" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Transporte aéreo</a>
+                </li>
+            </ul>
+            <br>
+        </div>
+        <router-outlet></router-outlet> <!-- recrear todos los com. hijos -->
+    </section>
+</article>

@@ -1,0 +1,431 @@
+<br>
+<section *ngIf="codes=='1.1.1' || codes=='1.1.2' || codes=='1.1.3'">
+    <div class="row col-12">
+        <div class="col-4">
+            <ng-autocomplete [data]="dataDate2" [searchKeyword]="dataDate2" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedYear" placeholder="SELECCIONE AÑO">
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+        <div class="col-4">
+            <ng-autocomplete [data]="dataEnterprise2" [searchKeyword]="dataEnterprise2" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedCompany"
+                placeholder="SELECCIONAR DEPARTAMENTO">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+        <div class="col col-4">
+            <button class="btn btn-primary btn-buscar" (click)="filterByYearAndCompany2()">Buscar</button>
+        </div>
+    </div>
+
+    <br>
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed ">
+            <thead>
+                <tr>
+                    <th *ngFor="let item of tableHead ">{{item}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item2 of tableBody  | slice:desde:hasta ">
+                    <td>{{item2[0]}}</td>
+                    <td>{{item2[1]}}</td>
+                    <td>{{item2[2]}}</td>
+                    <td>{{item2[3]}}</td>
+                    <td>{{item2[4]}}</td>
+                    <td>{{item2[5]}}</td>
+                    <td>{{item2[6]}}</td>
+                    <td>{{item2[7]}}</td>
+                    <td>{{item2[8]}}</td>
+                    <td>{{item2[0]}}</td>
+                    <td>{{item2[10]}}</td>
+                    <td>{{item2[11]}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <mat-paginator [length]="tableBody.length" [pageSize]="pageSize" (page)="cambiarPagina($event)"
+        aria-label="Select page">
+    </mat-paginator>
+    <br>
+</section>
+
+<section *ngIf=" codes=='3.13.2' || codes=='3.13.4'">
+    <div class="row col-12">
+
+        <div class="col-4">
+            <ng-autocomplete [data]="dataDate2" [searchKeyword]="dataDate2" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedYear" placeholder="AÑO">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <ng-autocomplete [data]="dataEnterprise2" [searchKeyword]="dataEnterprise2" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedCompany" placeholder="EMPRESA">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <button class="btn btn-primary btn-buscar" (click)="filterByYearAndCompany2()">Buscar</button>
+        </div>
+    </div>
+    <br>
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th *ngFor="let item of tableHead ">{{item}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item2 of tableBody | slice:desde:hasta ">
+                    <td>{{item2[0]}}</td>
+                    <td>{{item2[1]}}</td>
+                    <td>{{item2[2]}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <mat-paginator [length]="tableBody.length" [pageSize]="pageSize" (page)="cambiarPagina($event)"
+        aria-label="Select page">
+    </mat-paginator>
+    <br>
+
+</section>
+
+<section *ngIf="codes=='3.13.1'">
+
+    <div class="row col-12">
+
+        <div class="col-4">
+            <ng-autocomplete [data]="dataDate" [searchKeyword]="dataDate" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedYear" placeholder="SELECCIONE AÑO">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <ng-autocomplete [data]="dataEnterprise" [searchKeyword]="dataEnterprise" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedCompany" placeholder="SELECCIONE ENTIDAD">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <button class="btn btn-primary btn-buscar" (click)="filterByYearAndCompany()">Buscar</button>
+        </div>
+
+
+    </div>
+    <br>
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th *ngFor="let item of tableHead ">{{item}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item2 of tableBody | slice:desde:hasta ">
+                    <td>{{item2[0]}}</td>
+                    <td>{{item2[1]}}</td>
+                    <td>{{item2[2]}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <mat-paginator [length]="tableBody.length" [pageSize]="pageSize" (page)="cambiarPagina($event)"
+        aria-label="Select page">
+    </mat-paginator>
+    <br>
+</section>
+<section *ngIf="codes=='2.1'">
+    <div class="row col-12">
+        <div class="col-4">
+            <ng-autocomplete [data]="dataFechaFirma" [searchKeyword]="dataFechaFirma" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedFechaFirma" placeholder="FECHA FIRMA">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+        <div class="col-4">
+            <ng-autocomplete [data]="dataAcuerdo" [searchKeyword]="dataAcuerdo" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedAcuerdo" placeholder="SELECCIONAR SISTEMA">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+        <div class="col col-4">
+            <button class="btn btn-primary btn-buscar" (click)="filterByAcuerdoFechaFirma()">Buscar</button>
+        </div>
+    </div>
+    <br>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-indicador21">
+            <thead>
+                <tr>
+                    <th *ngFor="let item of tableHead">{{item}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item2 of tableBody | slice:desde:hasta ">
+                    <td>{{item2[0]}}</td>
+                    <td>{{item2[1]}}</td>
+                    <td>{{item2[2]}}</td>
+                    <td>{{item2[3]}}</td>
+                    <td>{{item2[4]}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <mat-paginator [length]="tableBody.length" [pageSize]="pageSize" (page)="cambiarPagina($event)"
+        aria-label="Select page">
+    </mat-paginator>
+    <br>
+</section>
+
+
+<section *ngIf="codes=='5.2' || codes=='5.3'">
+    <div class="row col-12">
+
+        <div class="col-2">
+            <ng-autocomplete [data]="dataDate" [searchKeyword]="dataDate" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedYear2" placeholder="SELECCIONE AÑO">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-3">
+            <ng-autocomplete [data]="dataEnterprise" [searchKeyword]="dataEnterprise" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedCompany2" placeholder="SELECCIONE EMPRESA">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+        <div class="col-3">
+            <ng-autocomplete [data]="dataNameClass" [searchKeyword]="dataNameClass" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedNombreClase"
+                placeholder="NOMBRE DE LA CLASE">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-3">
+            <ng-autocomplete [data]="dataGeiAll" [searchKeyword]="dataGeiAll" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedDataGei" placeholder="SELECCIONE NIVEL GEI">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+
+        <div class="col-1">
+            <button class="btn btn-primary btn-buscar" (click)="filterByfourLabels()">Buscar</button>
+        </div>
+    </div>
+    <br>
+    <div class="d-flex justify-content-end">
+        <nav class="ms-auto">
+            <div class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-bar" data-bs-toggle="tab" data-bs-target="#graphic-tab-bar"
+                        type="button" role="tab" aria-controls="graphic-tab-bar" aria-selected="true">Tabla 1</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-column" data-bs-toggle="tab" data-bs-target="#graphic-tab-column"
+                        type="button" role="tab" aria-controls="graphic-tab-column" aria-selected="false">tabla
+                        2</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-line" data-bs-toggle="tab" data-bs-target="#graphic-tab-line"
+                        type="button" role="tab" aria-controls="graphic-tab-line" aria-selected="false">Tabla
+                        3</button>
+                </li>
+            </div>
+        </nav>
+    </div>
+    <div class="tab-content" id="myTabContent">
+
+
+        <div class="tab-pane  show active p-3" id="graphic-tab-bar" role="tabpanel" aria-labelledby="tab-bar"
+            tabindex="0">
+
+
+            <div class="table-responsive">
+
+                <table class="table table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let item of tablePerson">{{item}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item2 of tableBody | slice:desde:hasta ">
+                            <td>{{item2[0]}}</td>
+                            <td>{{item2[1]}}</td>
+                            <td>{{item2[2]}}</td>
+                            <td>{{item2[3]}}</td>
+                            <td>{{item2[4]}}</td>
+                            <td>{{item2[5]}}</td>
+                            <td>{{item2[6]}}</td>
+                            <td>{{item2[7]}}</td>
+                            <td>{{item2[8]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <mat-paginator [length]="tableBody.length" [pageSize]="pageSize" (page)="cambiarPagina($event)"
+                aria-label="Select page">
+            </mat-paginator>
+            <br>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-column" role="tabpanel" aria-labelledby="tab-column" tabindex="0">
+            <div class="table-responsive">
+                <table class="table table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let item of tableMedicion ">{{item}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item2 of tableSerie2 | slice:desde:hasta">
+                            <td>{{item2[0]}}</td>
+                            <td>{{item2[1]}}</td>
+                            <td>{{item2[2]}}</td>
+                            <td>{{item2[3]}}</td>
+                            <td>{{item2[4]}}</td>
+                            <td>{{item2[5]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <mat-paginator [length]="tableSerie2.length" [pageSize]="pageSize" (page)="cambiarPagina($event)"
+                aria-label="Select page">
+            </mat-paginator>
+            <br>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-line" role="tabpanel" aria-labelledby="tab-line" tabindex="0">
+            <div class="table-responsive">
+                <table class="table table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let item of tableReduccion ">{{item}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item2 of tableSerie3 | slice:desde:hasta">
+                            <td>{{item2[0]}}</td>
+                            <td>{{item2[1]}}</td>
+                            <td>{{item2[2]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <mat-paginator [length]="tableSerie3.length" [pageSize]="pageSize" (page)="cambiarPagina($event)"
+                aria-label="Select page">
+            </mat-paginator>
+            <br>
+        </div>
+    </div>
+</section>

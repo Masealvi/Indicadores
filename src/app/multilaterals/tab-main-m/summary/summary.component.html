@@ -1,0 +1,73 @@
+<article class="container">
+    <br><br><br><br><br><br><br><br>
+    <section *ngIf="codes == 1">
+        <div class="card border-primary">
+            <div class="card-header">Mejores 5 países</div>
+            <div class="card-body">
+                <div [innerHTML]="htmlGraficaBarra"></div>
+            </div>
+        </div><br>
+        <div class="card border-primary">
+            <div class="card-header">Indicador LPI</div>
+            <div class="card-body">
+                <section style="float: right;">
+                    <div class="form-inline" [formGroup]="formGraficar!" *ngIf="formGraficar">
+                        <label style="padding-right: 3px;">Último año comparado con</label>
+                        <select (change)="graficar()" class="form-control" formControlName="cboAnio">
+                            <option *ngFor="let item of years" [value]="item">{{item}}</option>
+                        </select>
+                    </div>
+                </section>
+                <section>
+                    <div [chart]="spiderChart" style="width: 100%;"></div>
+                </section>
+            </div>
+        </div><br>
+        <div class="card border-primary">
+            <div class="card-header">Visión Global</div>
+            <div class="card-body">
+                <section style="float: right;">
+                    <div class="form-inline" [formGroup]="formGraficar!" *ngIf="formGraficar">
+                        <label style="padding-right: 3px;">Año</label>
+                        <select (change)="graficar()" class="form-control" formControlName="cboAnioGlobal">
+                            <option *ngFor="let item of yearsGlobal" [value]="item">{{item}}</option>
+                        </select>
+                    </div>
+                </section>
+                <section>
+                    <div id="container1" style="width: 100%;"></div>
+                </section>
+            </div>
+        </div><br>
+    </section>
+    <section *ngIf="codes == 2">
+        <br>
+        <div class="col col-lg-12">
+            <div [chart]="barChartSummary2" style="width: 100%;"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-6" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]">
+                <div class="card border-primary mb-3">
+                    <div class="card-body">
+                        <div id="chart-gauge{{i}}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section *ngIf="codes == 3">
+        <br>
+        <div class="row">
+            <div *ngFor="let item of array_donut" class="col-lg-6 ">
+                <div class="card border-primary mb-3">
+                    <div class="card-body">
+                        <div [chart]="item[0]"></div>
+                        <div class="table-responsive">
+                            <div [innerHTML]="item[1]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>

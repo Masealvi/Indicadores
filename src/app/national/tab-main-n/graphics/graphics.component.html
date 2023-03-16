@@ -1,0 +1,429 @@
+<br>
+<!--{{codes}}-->
+<section *ngIf="codes=='1.1.1'  || codes=='1.1.2' || codes=='1.1.3'">
+
+    <div class="row col-12">
+
+        <div class="col-4">
+            <ng-autocomplete [data]="years" [searchKeyword]="years" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedYear" placeholder="SELECCIONE AÑO">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <ng-autocomplete [data]="company" [searchKeyword]="company" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedCompany"
+                placeholder="SELECCIONE TIPO DE SUPERFICIE">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <button id="boton" class="btn btn-primary btn-buscar" (click)="filterByYearAndCompany()">Buscar</button>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div *ngFor="let item of array_donut" class="col-lg-4 ">
+            <div class="card border-primary mb-3">
+                <div class="card-body">
+                    <div [chart]="item[0]"></div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th *ngFor="let item3 of unidadMedida">{{item3}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item2 of item[1]">
+                                    <td>{{item2.name}}</td>
+                                    <td>{{item2.y}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="d-flex justify-content-end">
+        <nav class="ms-auto">
+            <div class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-bar" data-bs-toggle="tab" data-bs-target="#graphic-tab-bar"
+                        type="button" role="tab" aria-controls="graphic-tab-bar" aria-selected="true">Barra</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-column" data-bs-toggle="tab" data-bs-target="#graphic-tab-column"
+                        type="button" role="tab" aria-controls="graphic-tab-column"
+                        aria-selected="false">Columna</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-line" data-bs-toggle="tab" data-bs-target="#graphic-tab-line"
+                        type="button" role="tab" aria-controls="graphic-tab-line" aria-selected="false">Línea</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-area" data-bs-toggle="tab" data-bs-target="#graphic-tab-area"
+                        type="button" role="tab" aria-controls="graphic-tab-area" aria-selected="false">Área</button>
+                </li>
+            </div>
+        </nav>
+    </div>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane  show active p-3" id="graphic-tab-bar" role="tabpanel" aria-labelledby="tab-bar"
+            tabindex="0">
+            <div [chart]="barChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-column" role="tabpanel" aria-labelledby="tab-column" tabindex="0">
+            <div [chart]="columnChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-line" role="tabpanel" aria-labelledby="tab-line" tabindex="0">
+            <div [chart]="lineChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-area" role="tabpanel" aria-labelledby="tab-area" tabindex="0">
+            <div [chart]="areaChart"></div>
+        </div>
+    </div>
+</section>
+
+<section *ngIf="codes=='3.13.1'    
+|| codes=='3.13.4'|| codes=='3.13.2'">
+
+    <div class="row col-12">
+
+        <div class="col-4">
+            <ng-autocomplete [data]="years" [searchKeyword]="years" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedYear" placeholder="SELECCIONE AÑO">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <ng-autocomplete [data]="company" [searchKeyword]="company" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedCompany" placeholder="SELECCIONE ENTIDAD">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <button id="boton" class="btn btn-primary btn-buscar" (click)="filterByYearAndCompany()">Buscar</button>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div *ngFor="let item of array_donut" class="col-lg-4 ">
+            <div class="card border-primary mb-3">
+                <div class="card-body">
+                    <div [chart]="item[0]"></div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th *ngFor="let item3 of unidadMedida">{{item3}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item2 of item[1]">
+                                    <td>{{item2.name}}</td>
+                                    <td>{{item2.y}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="d-flex justify-content-end">
+        <nav class="ms-auto">
+            <div class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-bar" data-bs-toggle="tab" data-bs-target="#graphic-tab-bar"
+                        type="button" role="tab" aria-controls="graphic-tab-bar" aria-selected="true">Barra</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-column" data-bs-toggle="tab" data-bs-target="#graphic-tab-column"
+                        type="button" role="tab" aria-controls="graphic-tab-column"
+                        aria-selected="false">Columna</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-line" data-bs-toggle="tab" data-bs-target="#graphic-tab-line"
+                        type="button" role="tab" aria-controls="graphic-tab-line" aria-selected="false">Línea</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-area" data-bs-toggle="tab" data-bs-target="#graphic-tab-area"
+                        type="button" role="tab" aria-controls="graphic-tab-area" aria-selected="false">Área</button>
+                </li>
+            </div>
+        </nav>
+    </div>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane  show active p-3" id="graphic-tab-bar" role="tabpanel" aria-labelledby="tab-bar"
+            tabindex="0">
+            <div [chart]="barChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-column" role="tabpanel" aria-labelledby="tab-column" tabindex="0">
+            <div [chart]="columnChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-line" role="tabpanel" aria-labelledby="tab-line" tabindex="0">
+            <div [chart]="lineChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-area" role="tabpanel" aria-labelledby="tab-area" tabindex="0">
+            <div [chart]="areaChart"></div>
+        </div>
+    </div>
+</section>
+
+<section *ngIf=" codes=='5.2' || codes=='5.3' ">
+
+    <div class="row col-12">
+
+        <div class="col-2">
+            <ng-autocomplete [data]="years" [searchKeyword]="years" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedYear" placeholder="SELECCIONE AÑO">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <ng-autocomplete [data]="company" [searchKeyword]="company" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedCompany" placeholder="HUELLA DE CARBONO">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <button id="boton" class="btn btn-primary btn-buscar" (click)="filterByYearAndCompany()">Buscar</button>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div *ngFor="let item of array_donut" class="col-lg-4 ">
+            <div class="card border-primary mb-3">
+                <div class="card-body">
+                    <div [chart]="item[0]"></div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th *ngFor="let item3 of unidadMedida">{{item3}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item2 of item[1]">
+                                    <td>{{item2.name}}</td>
+                                    <td>{{item2.y}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="d-flex justify-content-end">
+        <nav class="ms-auto">
+            <div class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-bar" data-bs-toggle="tab" data-bs-target="#graphic-tab-bar"
+                        type="button" role="tab" aria-controls="graphic-tab-bar" aria-selected="true">Barra</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-column" data-bs-toggle="tab" data-bs-target="#graphic-tab-column"
+                        type="button" role="tab" aria-controls="graphic-tab-column"
+                        aria-selected="false">Columna</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-line" data-bs-toggle="tab" data-bs-target="#graphic-tab-line"
+                        type="button" role="tab" aria-controls="graphic-tab-line" aria-selected="false">Línea</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-area" data-bs-toggle="tab" data-bs-target="#graphic-tab-area"
+                        type="button" role="tab" aria-controls="graphic-tab-area" aria-selected="false">Área</button>
+                </li>
+            </div>
+        </nav>
+    </div>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane  show active p-3" id="graphic-tab-bar" role="tabpanel" aria-labelledby="tab-bar"
+            tabindex="0">
+            <div [chart]="barChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-column" role="tabpanel" aria-labelledby="tab-column" tabindex="0">
+            <div [chart]="columnChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-line" role="tabpanel" aria-labelledby="tab-line" tabindex="0">
+            <div [chart]="lineChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-area" role="tabpanel" aria-labelledby="tab-area" tabindex="0">
+            <div [chart]="areaChart"></div>
+        </div>
+    </div>
+</section>
+<section *ngIf=" codes=='2.1' ">
+
+    <div class="row col-12">
+
+        <div class="col-4">
+            <ng-autocomplete [data]="years" [searchKeyword]="years" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedYear" placeholder="SELECCIONE FECHA FIRMA">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <ng-autocomplete [data]="company" [searchKeyword]="company" [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate" [(ngModel)]="selectedCompany" placeholder="SELECCIONE ACUERDO">
+
+            </ng-autocomplete>
+
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item"></a>
+            </ng-template>
+
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
+        </div>
+
+        <div class="col-4">
+            <button id="boton" class="btn btn-primary btn-buscar" (click)="filterByYearAndCompany()">Buscar</button>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div *ngFor="let item of array_donut" class="col-lg-4 ">
+            <div class="card border-primary mb-3">
+                <div class="card-body">
+                    <div [chart]="item[0]"></div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th *ngFor="let item3 of unidadMedida">{{item3}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item2 of item[1]">
+                                    <td>{{item2.name}}</td>
+                                    <td>{{item2.y}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div>
+        
+    </div>
+    <div class="d-flex justify-content-end">
+        <nav class="ms-auto">
+            <div class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tab-bar" data-bs-toggle="tab" data-bs-target="#graphic-tab-bar"
+                        type="button" role="tab" aria-controls="graphic-tab-bar" aria-selected="true">Barra</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-column" data-bs-toggle="tab" data-bs-target="#graphic-tab-column"
+                        type="button" role="tab" aria-controls="graphic-tab-column"
+                        aria-selected="false">Columna</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-line" data-bs-toggle="tab" data-bs-target="#graphic-tab-line"
+                        type="button" role="tab" aria-controls="graphic-tab-line" aria-selected="false">Línea</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-area" data-bs-toggle="tab" data-bs-target="#graphic-tab-area"
+                        type="button" role="tab" aria-controls="graphic-tab-area" aria-selected="false">Área</button>
+                </li>
+            </div>
+        </nav>
+    </div>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane  show active p-3" id="graphic-tab-bar" role="tabpanel" aria-labelledby="tab-bar"
+            tabindex="0">
+            <div [chart]="barChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-column" role="tabpanel" aria-labelledby="tab-column" tabindex="0">
+            <div [chart]="columnChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-line" role="tabpanel" aria-labelledby="tab-line" tabindex="0">
+            <div [chart]="lineChart"></div>
+        </div>
+        <div class="tab-pane  p-3" id="graphic-tab-area" role="tabpanel" aria-labelledby="tab-area" tabindex="0">
+            <div [chart]="areaChart"></div>
+        </div>
+    </div>
+</section>

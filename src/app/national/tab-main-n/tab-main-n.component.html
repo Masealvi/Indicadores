@@ -1,0 +1,35 @@
+<br>
+<div class="container">
+
+    <article class="container">
+        <h1>Estado de la red Vial Nacional</h1>
+        <span>fuente : MINCETUR</span>
+        <br>
+        <span>Indicador para mostrar los avances en las mejores sobre el estado de la
+            infraestructura vial, principalmente en las zonas rurales, ya que influyen
+            los tiempos y costo de transporte interno.
+        </span>
+
+        
+        <br>
+        <section>
+            <br>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="graphic" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Gráficas</a>
+                </li>
+                <li class="na-item">
+                    <a class="nav-link" [routerLink]="table" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Tabla de datos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="sheet" [routerLinkActiveOptions]="{exact: true}"
+                        routerLinkActive="active">Ficha</a>
+                </li>
+            </ul>
+            <!-- <app-graphics (miEvento)="metodoPadre($event)" ></app-graphics> -->
+            <router-outlet></router-outlet> <!-- recrear todos los com. hijos -->
+        </section>
+    </article>
+</div>
